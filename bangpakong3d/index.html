@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title></title>
+<title>3Dบางระกงv5</title>
 <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 <base target="_blank">
 <link rel="stylesheet" type="text/css" href="./Qgis2threejs.css">
@@ -14,6 +14,7 @@
 <script src="./threejs/three.min.js"></script>
 <script src="./threejs/OrbitControls.js"></script>
 <script src="./threejs/ViewHelper.js"></script>
+<script src="./proj4js/proj4.js"></script>
 <script src="./Qgis2threejs.js"></script>
 </head>
 <body>
@@ -113,7 +114,7 @@
 
 <script>
 Q3D.Config.allVisible = true;
-
+Q3D.Config.coord.latlon = true;
 
 var container = document.getElementById("view"),
     app = Q3D.application,
