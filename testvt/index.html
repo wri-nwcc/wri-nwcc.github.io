@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaflet Vector Tile Map of Thailand</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map {
+            width: 100%;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://unpkg.com/leaflet.vectorgrid/dist/Leaflet.VectorGrid.js"></script>
+<script>
+    // Initialize the map
+    var map = L.map('map').setView([13.7563, 100.5018], 5); // Centered on Thailand
+
+    // Add a base layer
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 19,
+        attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Add vector tile layer (e.g., from Mapbox or another source)
+    var vectorTileLayer = L.vectorGrid.protobuf('https://vallaris.dragonfly.gistda.or.th/core/api/tiles/1.0-beta/tiles/6523cabb364545bfe8a3faec/{z}/{x}/{y}?api_key=z7BZD6E4D2kjcnszmpHcR5dgEqTibg39I2FdQ67ibH2I4cuukgdpPubcBxqNTntt', {
+        vectorTileLayerStyles: {
+            // Define your styles here
+            // Example: 'layer_name': { color: 'red' }
+        },
+        maxZoom: 14,
+        attribution: '© Vector Tiles Source'
+    }).addTo(map);
+</script>
+
+</body>
+</html>
